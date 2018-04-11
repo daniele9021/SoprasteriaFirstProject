@@ -17,7 +17,7 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerDao CustomerDao;
    
     @Autowired
-    private SessionService sessionService;
+	private SessionService sessionService;
 
     @Override
     public List<Customer> retrieveAllUsers() {
@@ -26,11 +26,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer register(Customer user) {
-		 	Objects.requireNonNull(user.getId(), "id cannot be null");
 	        Objects.requireNonNull(user.getFirstName(), "First name cannot be null");
 	        Objects.requireNonNull(user.getLastName(), "Last name cannot be null");
 	        Objects.requireNonNull(user.getPassword(), "Password cannot be null");
-	        Objects.requireNonNull(user.getCartId(), "Cart cannot be null");
 	        for(Customer userall:  retrieveAllUsers())
 			{
 				if(userall.getId().equals(user.getId()))

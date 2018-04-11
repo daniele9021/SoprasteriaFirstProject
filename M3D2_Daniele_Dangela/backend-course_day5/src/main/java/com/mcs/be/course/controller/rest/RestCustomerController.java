@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.mcs.be.course.dto.CustomerDto;
-import com.mcs.be.course.facade.UserFacade;
+import com.mcs.be.course.facade.CustomerFacade;
 
 
 @RestController
 @RequestMapping(value = "/user")
-public class RestUserController {
+public class RestCustomerController {
 
-    private static final Logger LOGGER = LogManager.getLogger(RestUserController.class);
+    private static final Logger LOGGER = LogManager.getLogger(RestCustomerController.class);
 
     @Autowired
-    private UserFacade userFacade;
+    private CustomerFacade userFacade;
 
     @RequestMapping(method=RequestMethod.POST)
     public CustomerDto login(@RequestBody CustomerDto customerDto) 

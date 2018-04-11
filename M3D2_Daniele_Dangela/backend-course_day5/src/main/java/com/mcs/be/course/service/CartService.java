@@ -2,18 +2,15 @@ package com.mcs.be.course.service;
 
 import java.util.List;
 
-import com.mcs.be.course.dto.ArticleDto;
-import com.mcs.be.course.dto.CartEntryDto;
-import com.mcs.be.course.dto.CustomerDto;
+import com.mcs.be.course.model.Article;
 import com.mcs.be.course.model.Cart;
+import com.mcs.be.course.model.CartEntry;
+
 
 public interface CartService {
-    List<Cart> retrieveAllCustomers();
+    Cart getCartForUser( Long id);
+	CartEntry addToCart(CartEntry cartEntry);
+	List<CartEntry> retrieveCartEntry();
+	CartEntry removeFromCart(CartEntry cartEntry);
     
-    
-    Cart getCartForUser(CustomerDto customerDto);
-    Cart addToCart (CartEntryDto cartEntryDto, ArticleDto articleDto);
-    Cart removeFromCart (CartEntryDto cartEntryDto, ArticleDto articleDto);
-
-
 }

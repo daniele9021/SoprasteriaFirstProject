@@ -14,7 +14,6 @@ import javax.persistence.Table;
 public class Cart  implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(nullable = false)
 	private Long id;
 	

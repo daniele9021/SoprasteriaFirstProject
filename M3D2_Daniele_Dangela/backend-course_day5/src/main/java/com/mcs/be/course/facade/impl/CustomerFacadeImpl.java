@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.mcs.be.course.dto.CustomerDto;
-import com.mcs.be.course.facade.UserFacade;
+import com.mcs.be.course.facade.CustomerFacade;
 import com.mcs.be.course.model.Customer;
 import com.mcs.be.course.service.CustomerService;
 import com.mcs.be.course.service.SessionService;
@@ -13,7 +13,7 @@ import com.mcs.be.course.service.SessionService;
 import ma.glasnost.orika.MapperFacade;
 
 @Component
-public class UserFacadeImpl implements UserFacade{
+public class CustomerFacadeImpl implements CustomerFacade{
 	
 	@Autowired
 	private CustomerService customerService;
@@ -36,7 +36,6 @@ public class UserFacadeImpl implements UserFacade{
 	 
 	@Override
 	public CustomerDto register(CustomerDto user) {
-		  
 	   Customer customer = mapperFacade.map(user, Customer.class);	
 	   customer = customerService.register(customer);
 	   
@@ -48,7 +47,7 @@ public class UserFacadeImpl implements UserFacade{
 	public CustomerDto login(CustomerDto customerDto) {
 		Customer customer = mapperFacade.map(customerDto, Customer.class);	
 		customer = customerService.login(customer.getId(), customer.getPassword());
-		
+		sessionService.add(customer);
 		return mapperFacade.map(customer, CustomerDto.class);
 	}
 

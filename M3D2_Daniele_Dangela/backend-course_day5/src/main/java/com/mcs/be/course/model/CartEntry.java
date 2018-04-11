@@ -14,12 +14,7 @@ import javax.persistence.Table;
 @Table
 public class CartEntry  implements Serializable {
 	
-	
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	@Column(nullable = false)
-	private Long id;
-	
+	 @Id
 	 @Column(nullable = false)
 	 private Long articleId;
 	 
@@ -28,14 +23,9 @@ public class CartEntry  implements Serializable {
 	 
 	 @Column(nullable = false)
 	 private BigDecimal unitPrice;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	 
+	 @Column(nullable = false)
+	 private Long cartId;
 
 	public Long getArticleId() {
 		return articleId;
@@ -59,6 +49,14 @@ public class CartEntry  implements Serializable {
 
 	public void setUnitPrice(BigDecimal unitPrice) {
 		this.unitPrice = unitPrice;
+	}
+
+	public Long getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(Long cartId) {
+		this.cartId = cartId;
 	}
 
 	 

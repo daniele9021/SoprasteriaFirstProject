@@ -5,35 +5,24 @@ import java.math.BigDecimal;
 
 public class CartEntryDto implements Serializable{
 
-	 private Long cartId;
      private Long articleId;
      private int quantity;
      private BigDecimal unitPrice;
+     private BigDecimal totalPrice;
      
      
-     //TODO campo "totalPrice" (quantity * unitPrice) (configurare OrikaMapper per farlo)
-     
+
 	public CartEntryDto () {}
 
 
-	public CartEntryDto(Long cartId, Long articleId, int quantity, BigDecimal unitPrice) {
+	public CartEntryDto(Long articleId, int quantity, BigDecimal unitPrice,BigDecimal totalPrice) {
 		super();
-		this.cartId = cartId;
+		
 		this.articleId = articleId;
 		this.quantity = quantity;
 		this.unitPrice = unitPrice;
+		this.totalPrice = totalPrice;
 	}
-
-
-	public Long getCartId() {
-		return cartId;
-	}
-
-
-	public void setCartId(Long cartId) {
-		this.cartId = cartId;
-	}
-
 
 	public Long getArticleId() {
 		return articleId;
@@ -64,6 +53,14 @@ public class CartEntryDto implements Serializable{
 		this.unitPrice = unitPrice;
 	}
 	
+	public BigDecimal getTotalPrice() {
+		return totalPrice;
+	}
+
+
+	public void setTotalPrice(BigDecimal totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 		
 	
 }
